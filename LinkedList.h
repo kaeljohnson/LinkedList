@@ -9,12 +9,14 @@ class Node {
 };
 
 class LinkedList {
-  private:
+  public:
     Node* head;
 
-  public:
     LinkedList();
     LinkedList(int val);
     void addNode(int val);
     void removeNode(int idx);
+    void printList();
+    Node* getHead();
+    Node* getTail();
 };
