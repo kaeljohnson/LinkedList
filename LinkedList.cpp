@@ -37,6 +37,22 @@ void LinkedList::addNode(int valToAdd) {
     }
 }
 
+void LinkedList::removeNode(int idx) {
+    int nodeCount = 0;
+    Node* iteratorNode = head;
+    while (nodeCount < idx-1) {
+        if (iteratorNode->next == nullptr) {
+            std::cout << "index out of bounds\n";
+            return;
+        }
+        iteratorNode = iteratorNode->next;
+        nodeCount++;
+    }
+    Node* temp = iteratorNode->next;
+    iteratorNode->next = iteratorNode->next->next;
+    delete temp;
+}
+
 void LinkedList::printList() {
     Node* iteratorNode = head;
     while (iteratorNode->next != nullptr) {
@@ -52,28 +68,12 @@ Node* LinkedList::getHead() {
 
 Node* LinkedList::getTail() {
 
-    Node* tail;
-    while (head->next != nullptr) {
-        tail = head->next;
+    Node* tail = head;
+    while (tail->next != nullptr) {
+        tail = tail->next;
     }
 
     return tail;
-}
-
-void LinkedList::removeNode(int idx) {
-    int nodeCount = 0;
-    Node* iteratorNode = head;
-    while (nodeCount < idx-1) {
-        if (iteratorNode->next == nullptr) {
-            std::cout << "index out of bounds\n";
-            return;
-        }
-        iteratorNode = iteratorNode->next;
-        nodeCount++;
-    }
-    Node* temp = iteratorNode->next;
-    iteratorNode->next = iteratorNode->next->next;
-    delete temp;
 }
 
 

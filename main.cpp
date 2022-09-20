@@ -26,4 +26,8 @@ int main() {
     newList.printList();
 
     newList.removeNode(6);
+
+    std::cout << newList.getTail()->value << "\n";
+
+    std::cout << newList.getHead()->value;
 }
