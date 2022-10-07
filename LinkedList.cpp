@@ -50,6 +50,7 @@ void LinkedList::removeNode(int idx) {
     }
     Node* temp = iteratorNode->next;
     iteratorNode->next = iteratorNode->next->next;
+    iteratorNode->next->prev = iteratorNode;
     delete temp;
 }
 
